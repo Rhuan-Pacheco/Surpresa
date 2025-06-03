@@ -1,0 +1,398 @@
+/* Fonte Google */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Sacramento&display=swap');
+
+/* Reset básico */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', 'Segoe UI', sans-serif;
+  background: #fff0f5;
+  color: #4a3f4a;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding: 20px 15px;
+  word-wrap: break-word;
+}
+
+h1, h2 {
+  font-family: 'Sacramento', cursive;
+  color: #d6336c;
+  text-align: center;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 3px #f9c6d3;
+  margin-bottom: 20px;
+  user-select: none;
+}
+
+h1 {
+  font-size: 2.8rem;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+h2 {
+  font-size: 2.4rem;
+  margin-bottom: 30px;
+}
+
+/* Container principal para seções */
+section {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 15px;
+}
+
+/* Linha do tempo */
+.timeline {
+  border-left: 4px solid #ff69b4;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Animação fade-in com slide pra cima */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.timeline-item {
+  background: #fff5fb;
+  border-radius: 12px;
+  padding: 20px 25px;
+  box-shadow: 0 4px 12px rgba(214, 51, 108, 0.15);
+  position: relative;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  word-wrap: break-word;
+
+  opacity: 0;
+  animation-name: fadeInUp;
+  animation-duration: 0.6s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+  animation-delay: 0s; /* padrão, será sobrescrito abaixo */
+}
+
+/* Define delay progressivo para cada item usando nth-child */
+.timeline-item:nth-child(1) {
+  animation-delay: 0s;
+}
+.timeline-item:nth-child(2) {
+  animation-delay: 0.25s;
+}
+.timeline-item:nth-child(3) {
+  animation-delay: 0.5s;
+}
+.timeline-item:nth-child(4) {
+  animation-delay: 0.75s;
+}
+.timeline-item:nth-child(5) {
+  animation-delay: 1s;
+}
+.timeline-item:nth-child(6) {
+  animation-delay: 1.25s;
+}
+.timeline-item:nth-child(7) {
+  animation-delay: 1.5s;
+}
+.timeline-item:nth-child(8) {
+  animation-delay: 1.75s;
+}
+
+.timeline-item:hover,
+.timeline-item:focus-within {
+  transform: translateX(5px);
+  box-shadow: 0 8px 16px rgba(214, 51, 108, 0.3);
+  outline: none;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -12px;
+  top: 24px;
+  width: 16px;
+  height: 16px;
+  background: #d6336c;
+  border-radius: 50%;
+  border: 3px solid #fff0f5;
+  box-shadow: 0 0 10px #ff69b4aa;
+}
+
+.timeline-item strong {
+  color: #b0205b;
+  font-weight: 700;
+  font-size: 1.1rem;
+  display: block;
+  margin-bottom: 10px;
+  user-select: text;
+}
+
+/* Imagens da timeline */
+.timeline-item img {
+  width: 100%;
+  max-width: 320px;
+  margin: 15px auto 0 auto;
+  display: block;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(214, 51, 108, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.timeline-item img:hover,
+.timeline-item img:focus {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(214, 51, 108, 0.35);
+  outline: none;
+}
+
+/* Caixa de mensagem */
+.message-box {
+  background: #ffe4e1;
+  padding: 25px 30px;
+  max-width: 650px;
+  margin: 20px auto;
+  border-radius: 30px;
+  font-style: italic;
+  font-size: 1.2rem;
+  color: #9a2b51;
+  box-shadow: 0 4px 12px rgba(214, 51, 108, 0.1);
+  transition: background-color 0.3s ease;
+  user-select: none;
+  white-space: pre-line;
+}
+
+.message-box:hover,
+.message-box:focus {
+  background-color: #ffd3dc;
+  outline: none;
+}
+
+/* Container para vídeos */
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 15px;
+  text-align: center;
+  color: #4a3f4a;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Vídeos lado a lado */
+.video-romantico {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.video-romantico video {
+  max-width: 440px;
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(214, 51, 108, 0.25);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video-romantico video:hover,
+.video-romantico video:focus {
+  transform: scale(1.03);
+  box-shadow: 0 12px 30px rgba(214, 51, 108, 0.4);
+  outline: none;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  body {
+    padding: 15px 10px;
+  }
+
+  h1 {
+    font-size: 2.4rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  section {
+    margin: 30px 10px;
+    padding: 0 10px;
+  }
+
+  .timeline-item {
+    padding: 15px 20px;
+  }
+
+  .timeline-item img {
+    max-width: 100%;
+    margin-top: 15px;
+  }
+
+  .message-box {
+    font-size: 1.1rem;
+    padding: 20px 20px;
+  }
+
+  .video-romantico {
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .video-romantico video {
+    max-width: 100%;
+    border-radius: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  .message-box {
+    font-size: 1rem;
+    padding: 18px 15px;
+  }
+
+  .timeline-item strong {
+    font-size: 1rem;
+  }
+}
+/* Container para os corações no fundo */
+.heart-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Para não atrapalhar cliques */
+  overflow: hidden;
+  z-index: 0; /* Atrás de tudo */
+}
+
+/* Estilo base do coração */
+.heart {
+  position: absolute;
+  bottom: -50px; /* Começa fora da tela */
+  width: 20px;
+  height: 20px;
+  background-color: #d6336c;
+  opacity: 0.7;
+  transform: rotate(45deg);
+  animation-name: floatUp;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: 7s;
+  animation-delay: 0s;
+  border-radius: 20px 20px 0 0;
+  box-shadow: -12px 0 0 #d6336c, 0 -12px 0 #d6336c; /* Faz o coração */
+}
+
+/* Animação de subida e movimento lateral suave */
+@keyframes floatUp {
+  0% {
+    transform: translateX(0) translateY(0) rotate(45deg);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateX(15px) translateY(-50vh) rotate(45deg);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateX(-15px) translateY(-100vh) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+/* Diferentes posições horizontais e tempos para cada coração */
+.heart-container .heart:nth-child(1) {
+  left: 10%;
+  animation-delay: 0s;
+  animation-duration: 6s;
+  width: 15px;
+  height: 15px;
+}
+
+.heart-container .heart:nth-child(2) {
+  left: 20%;
+  animation-delay: 1s;
+  animation-duration: 8s;
+}
+
+.heart-container .heart:nth-child(3) {
+  left: 30%;
+  animation-delay: 2s;
+  animation-duration: 7s;
+  width: 18px;
+  height: 18px;
+}
+
+.heart-container .heart:nth-child(4) {
+  left: 40%;
+  animation-delay: 3s;
+  animation-duration: 6.5s;
+}
+
+.heart-container .heart:nth-child(5) {
+  left: 50%;
+  animation-delay: 4s;
+  animation-duration: 7.5s;
+  width: 16px;
+  height: 16px;
+}
+
+.heart-container .heart:nth-child(6) {
+  left: 60%;
+  animation-delay: 1.5s;
+  animation-duration: 6.8s;
+}
+
+.heart-container .heart:nth-child(7) {
+  left: 70%;
+  animation-delay: 2.5s;
+  animation-duration: 7.2s;
+  width: 17px;
+  height: 17px;
+}
+
+.heart-container .heart:nth-child(8) {
+  left: 80%;
+  animation-delay: 3.5s;
+  animation-duration: 6.3s;
+}
+
+.heart-container .heart:nth-child(9) {
+  left: 90%;
+  animation-delay: 4.5s;
+  animation-duration: 7.8s;
+  width: 14px;
+  height: 14px;
+}
+
+.heart-container .heart:nth-child(10) {
+  left: 95%;
+  animation-delay: 5s;
+  animation-duration: 6.9s;
+}
+
