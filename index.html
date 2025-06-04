@@ -15,8 +15,7 @@
       align-items: center;
       height: 100vh;
       text-align: center;
-      overflow: hidden;
-      position: relative;
+      flex-direction: column;
     }
 
     h1 {
@@ -26,7 +25,7 @@
 
     p {
       font-size: 1.2em;
-      margin-bottom: 30px;
+      margin-bottom: 15px;
     }
 
     .btn {
@@ -39,64 +38,41 @@
       font-size: 1.1em;
       font-weight: bold;
       text-decoration: none;
+      display: inline-block;
+      margin-top: 20px;
     }
 
-    .btn:hover {
-      background: #ffe4ec;
-      color: #c71585;
+    input[type="password"] {
+      padding: 10px;
+      border-radius: 20px;
+      border: none;
+      font-size: 1em;
+      margin-top: 10px;
+      outline: none;
     }
 
-    /* Corações animados */
-    .heart {
-      position: absolute;
-      top: -50px;
-      font-size: 24px;
-      animation: fall linear infinite;
-      user-select: none;
-      pointer-events: none;
-    }
-
-    @keyframes fall {
-      0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(110vh) rotate(360deg);
-        opacity: 0;
-      }
+    .hidden {
+      display: none;
     }
   </style>
 </head>
 <body>
-  <div>
-    <h1>Oi, meu amor 💌</h1>
-    <p>Esse site é só nosso. Clique no botão abaixo para começar.</p>
-    <a href="historia.html" class="btn">Começar</a>
-  </div>
+  <h1>Oi, meu amor 💌</h1>
+  <p>Esse cantinho é só nosso...</p>
+  <p><strong>Dica:</strong> Data do início da nossa história juntos</p>
+  <input type="password" id="senha" placeholder="Digite a senha...">
+  <br />
+  <button class="btn" onclick="verificarSenha()">Acessar</button>
 
   <script>
-    const heartEmojis = ["❤️", "💖", "💘", "💗", "💕", "💞"];
-    const heartColors = ["#fff", "#ffe4e1", "#ff69b4", "#ff1493", "#ffc0cb", "#f06292"];
-
-    function createHeart() {
-      const heart = document.createElement("div");
-      heart.classList.add("heart");
-
-      heart.innerText = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.fontSize = (Math.random() * 15 + 15) + "px";
-      heart.style.animationDuration = (Math.random() * 5 + 5) + "s";
-      heart.style.color = heartColors[Math.floor(Math.random() * heartColors.length)];
-
-      document.body.appendChild(heart);
-
-      setTimeout(() => {
-        heart.remove();
-      }, 10000);
+    function verificarSenha() {
+      const senha = document.getElementById("senha").value;
+      if (senha === "12072023") {
+        window.location.href = "historia.html";
+      } else {
+        alert("Senha incorreta! Tente novamente com carinho. 💕");
+      }
     }
-
-    setInterval(createHeart, 300);
   </script>
 </body>
 </html>
